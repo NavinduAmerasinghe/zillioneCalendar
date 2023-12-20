@@ -41,7 +41,7 @@ const CalendarFooter = () => {
           <img
             src={PublicHoliLogo}
             alt="Public Holiday Logo"
-            style={{ height: "8px", width: "8px", marginLeft: 8 , marginRight:4 }}
+            style={{ height: "10px", width: "10px", marginLeft: 8 , marginRight:4 }}
           />
         </span>
         <h1 className="sm-1 text-white text-xs">Public Holiday</h1>
@@ -54,7 +54,7 @@ const CalendarFooter = () => {
           <img
             src={MercHoliLogo}
             alt="Bank Holiday Logo"
-            style={{ height: "8px", width: "10px", marginLeft: 8 , marginRight:4 }}
+            style={{ height: "10px", width: "10px", marginLeft: 8 , marginRight:4 }}
           />
         </span>
         <h1 className="sm-1 text-white text-xs">Mercantile Holiday</h1>

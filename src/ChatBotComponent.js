@@ -5,7 +5,7 @@ const ChatbotComponent = () => {
     <div>
       <iframe
         title="CoPilot Chatbot"
-        src="https://copilotstudio.microsoft.com/environments/Default-6b4abc02-e40b-4d50-9fef-944a68196da3/bots/cr3b3_copilot1/webchat?__version__=2%22"
+        src="https://copilotstudio.microsoft.com/environments/e2093421-0d62-ed60-9376-867ffc7f9996/bots/cr6d7_aiCalendarChatBot/canvas?__version__=2"
         width="100%"
         height="600px" // Adjust the height as needed
         allow="microphone; camera; geolocation"

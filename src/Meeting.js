@@ -35,13 +35,13 @@ function Meeting({ meeting,onMeetingClick }) {
             onClick={()=>onMeetingClick(meeting.imageUrl,meeting.name)}
           />
           <div className="flex flex-col justify-start">
-            <p className="vtext-gray-900 text-white">{meeting.name}</p>
+            <p className="vtext-gray-900 text-white mt-4">{meeting.name}</p>
             <div className="flex items-center">
-              <time dateTime={meeting.startDatetime} className="text-gray-500 text-white">
+              <time dateTime={meeting.startDatetime} className="text-gray-500" style={{color:"white"}}>
                 {format(startDatetime, "h:mm a")}
               </time>
               <span className="mx-1 text-gray-500">-</span>
-              <time dateTime={meeting.endDatetime} className="text-gray-500 text-white">
+              <time dateTime={meeting.endDatetime} className="text-gray-500" style={{color:"white"}}>
                 {format(endDatetime, "h:mm a")}
               </time>
             </div>

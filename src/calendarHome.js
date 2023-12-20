@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { generateDate, months } from "./util/calendar";
 import cn from "./util/cn";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
@@ -49,12 +49,42 @@ export default function Calendar() {
     setIsMeetingEnlarged(!isMeetingEnlarged);
   };
 
+  const [backgroundImage, setBackgroundImage] = useState('');
+
+  useEffect(() => {
+    const date = new Date();
+    const month = date.getMonth(); // Get the current month (0-indexed)
+console.log("current month", month)
+    // Define image URLs for each month (January is 0, February is 1, and so on)
+    const monthImages = [
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      'url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)', 
+      
+     
+    ];
+
+    // Set background image based on the current month
+    setBackgroundImage(monthImages[month]);
+  }, []);
+
+
   return (
     <div
       className="App flex justify-end"
       data-theme={isDark ? "dark" : "light"}
       style={{
-        backgroundImage: isDark ? "" : `url(${vector})`,
+        //backgroundImage: isDark ? "" : backgroundImage,
+       backgroundImage: isDark ? "" : `url(${vector})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         paddingTop: 20,
@@ -218,18 +248,20 @@ export default function Calendar() {
                                     />
                                   </span>
                                 )}
-                                {meeting.holidayType === "Poya holiday" && (
-                                  <span
-                                    className="text-yellow-600"
-                                    title="Poya Holiday"
-                                  >
-                                    🌕
-                                  </span>
+                                {meeting.holidayType === "Poyaholiday" && (
+                                  <span className="text-green-600" title="Poya Holiday">
+                                  <img
+                                    src={PoyaHoliLogo}
+                                    alt="Poya Holiday Logo"
+                                    style={{ height: "8px", width: "8px", marginLeft: 8 , marginRight:4 }}
+                                  />
+                                </span>
                                 )}
                               </span>
                             ))}
                           </div>
                         )}
+                        
                       </h1>
                     </div>
                   );
@@ -271,19 +303,22 @@ export default function Calendar() {
 
               {isMeetingEnlarged && (
                 <div>
-                  <div className="mt-4">
-                    <img
-                      src={selectedImage}
-                      alt=""
-                      className="max-w-full h-auto mx-auto cursor-pointer rounded-lg"
-                      style={{ width: "150px", height: "150px" }}
-                    />
-                  </div>
-                  <div className="text-white">{selectedName}</div>
+                <div className="mt-4">
+                  <img
+                    src={selectedImage}
+                    alt=""
+                    className="max-w-full h-auto mx-auto cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                    style={{ width: "250px", height: "150px" }}
+                  />
                 </div>
+                <div className="text-white text-center mt-2 text-lg font-semibold">
+                  {selectedName}
+                </div>
+              </div>
+              
               )}
 
-              <ol className="mt-4 space-y-4 text-sm leading-6 text-gray-500">
+         <ol className="mt-4 space-y-4 text-sm leading-6 text-gray-500 ml-10">
                 {meetings
                   .filter((meeting) =>
                     isSameDay(

@@ -16,7 +16,7 @@ const meetings = [
       startDatetime: '2023-12-14T09:00',
       endDatetime: '2023-12-14T11:30',
       color:"yellow",
-      holidayType:'BankHoliday'
+      holidayType:'Poyaholiday'
     },
     {
       id: 3,
