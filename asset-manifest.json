@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/zillioneCalendar/static/css/main.2e33b86b.css",
+    "main.js": "/zillioneCalendar/static/js/main.1f206178.js",
+    "static/js/787.88dfdeb5.chunk.js": "/zillioneCalendar/static/js/787.88dfdeb5.chunk.js",
+    "static/media/winter.jpg": "/zillioneCalendar/static/media/winter.0552355d98128e388620.jpg",
+    "static/media/Vector.png": "/zillioneCalendar/static/media/Vector.bb62a14175d539cc758e.png",
+    "static/media/logo.png": "/zillioneCalendar/static/media/logo.99f23eb2a595c3870efc.png",
+    "static/media/chatbot.png": "/zillioneCalendar/static/media/chatbot.4aa552f228885a8681d0.png",
+    "index.html": "/zillioneCalendar/index.html",
+    "main.2e33b86b.css.map": "/zillioneCalendar/static/css/main.2e33b86b.css.map",
+    "main.1f206178.js.map": "/zillioneCalendar/static/js/main.1f206178.js.map",
+    "787.88dfdeb5.chunk.js.map": "/zillioneCalendar/static/js/787.88dfdeb5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e33b86b.css",
+    "static/js/main.1f206178.js"
+  ]
+}
