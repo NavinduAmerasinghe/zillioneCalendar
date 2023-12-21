@@ -13,10 +13,10 @@ const meetings = [
       name: 'Unduvap Full Moon Poya',
       imageUrl:
         'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FUnduvapPoya.jfif?alt=media&token=8f84abbc-273c-4b3a-bf70-6a98c3ddf567',
-      startDatetime: '2023-12-14T09:00',
-      endDatetime: '2023-12-14T11:30',
+      startDatetime: '2023-12-21T09:00',
+      endDatetime: '2023-12-21T11:30',
       color:"yellow",
-      holidayType:'Poyaholiday'
+      holidayType:'PoyaHoliday'
     },
     {
       id: 3,
@@ -50,6 +50,51 @@ const meetings = [
           'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FUnduvapPoya.jfif?alt=media&token=8f84abbc-273c-4b3a-bf70-6a98c3ddf567',
         startDatetime: '2023-12-19T14:00',
         endDatetime: '2023-12-19T14:30',
+      },
+      {
+        id: 7,
+        name: 'Tamil Thai Pongal',
+        imageUrl:
+          'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FUnduvapPoya.jfif?alt=media&token=8f84abbc-273c-4b3a-bf70-6a98c3ddf567',
+        startDatetime: '2024-01-15T14:00',
+        endDatetime: '2024-01-15T14:30',
+        holidayType:['PublicHoliday','BankHoliday', 'MercantileHoliday']
+      },
+      {
+        id: 8,
+        name: 'Duruthu Full Moon Poya',
+        imageUrl:
+          'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FUnduvapPoya.jfif?alt=media&token=8f84abbc-273c-4b3a-bf70-6a98c3ddf567',
+        startDatetime: '2024-01-25T14:00',
+        endDatetime: '2024-01-25T14:30',
+        holidayType:['PoyaHoliday','PublicHoliday','BankHoliday', 'MercantileHoliday']
+      },
+      {
+        id: 9,
+        name: 'Independance Day',
+        imageUrl:
+          'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FUnduvapPoya.jfif?alt=media&token=8f84abbc-273c-4b3a-bf70-6a98c3ddf567',
+        startDatetime: '2024-02-04T14:00',
+        endDatetime: '2024-02-04T14:30',
+        holidayType:['PublicHoliday','BankHoliday', 'MercantileHoliday']
+      },
+      {
+        id: 10,
+        name: 'Valentines Day',
+        imageUrl:
+          'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FUnduvapPoya.jfif?alt=media&token=8f84abbc-273c-4b3a-bf70-6a98c3ddf567',
+        startDatetime: '2024-02-14T14:00',
+        endDatetime: '2024-02-14T14:30',
+  
+      },
+      {
+        id: 11,
+        name: 'Navam Full Moon Poya Day',
+        imageUrl:
+          'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FUnduvapPoya.jfif?alt=media&token=8f84abbc-273c-4b3a-bf70-6a98c3ddf567',
+        startDatetime: '2024-02-23T14:00',
+        endDatetime: '2024-02-23T14:30',
+        holidayType:['PoyaHoliday','PublicHoliday','BankHoliday', 'MercantileHoliday']
       },
   ];
 
