@@ -484,8 +484,7 @@ export default function Calendar() {
           )}
 
           {showChatbot && (
-            // <div ref={chatbotRef} style={{ height: 500, overflow: "auto" }}>
-            <div style={{ height: 500, overflow: "auto" }}>
+            <div ref={chatbotRef} style={{ height: 500, overflow: "auto" }}>
               <ChatbotComponent />
             </div>
           )}
