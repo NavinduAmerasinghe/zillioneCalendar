@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   background-color: var(--background-color);
-  /* background-image: url('./img/winter.jpg'); */
   transition: background-color 0.25s ease-in-out;
 }
 

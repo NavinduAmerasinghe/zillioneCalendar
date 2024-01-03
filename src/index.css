@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --background-img: url('./img/winter.jpg');
   --background-color: #f6f6f6;
   --foreground-color: #003cff;
   --primary-text-color: #0a0a0a;
