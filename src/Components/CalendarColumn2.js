@@ -35,7 +35,7 @@ export const CalendarColumn2 = ({
           <h1 className="font-semibold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mr-2 mb-2">
             {selectDate.format("DD")}
           </h1>
-          <h1 className="font-semibold text-2xl text-white gap-6">
+          <h1 className="font-semibold text-2xl text-white gap-6 mt-3">
             {selectDate.format("dddd")}
           </h1>
         </div>
@@ -109,9 +109,7 @@ export const CalendarColumn2 = ({
                         />
                         <div className="flex flex-col justify-start">
                           <p
-                            className={`text-xs text-white mt-1 mb-1 font-serif truncate ${
-                              !showChatbot ? "w-50" : "w-20"
-                            }`}
+                            className={"text-xs text-white mt-1 mb-1 font-serif"}
                           >
                             {event.name}
                           </p>

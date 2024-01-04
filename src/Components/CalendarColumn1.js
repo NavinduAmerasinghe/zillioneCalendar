@@ -187,7 +187,7 @@ export const CalendarColumn1 = ({
   setSelectDate,
   //month,
 }) => {
-  const [customMonth, setCustomMonth] = useState(dayjs().month() + 1);
+  //const [customMonth, setCustomMonth] = useState(dayjs().month() + 1);
   //  const navigate = useNavigate();
   // const { month } = useParams();
   //const [selectDate, setSelectDate] = useState(dayjs());
@@ -227,6 +227,8 @@ export const CalendarColumn1 = ({
   //   }
   // };
 
+
+
   const updatedDates = generateDate(selectDate.month(), selectDate.year());
   console.log("updated dates", updatedDates);
 
@@ -250,13 +252,13 @@ export const CalendarColumn1 = ({
         </div>
        
         <div className="flex gap-2 items-center">
-          <IoIosArrowDown
+          <IoIosArrowUp
             className="w-5 h-5 cursor-pointer hover:scale-105 transition-all text-white"
             onClick={() => {
               setToday(today.month(today.month() - 1));
             }}
           />
-          <IoIosArrowUp
+          <IoIosArrowDown
             className="w-5 h-5 cursor-pointer hover:scale-105 transition-all text-white"
             onClick={() => {
               setToday(today.month(today.month() + 1));
@@ -293,7 +295,7 @@ export const CalendarColumn1 = ({
                 <h1
                   className={cn(
                     currentMonth ? "text-white" : "text-gray-500",
-                    today ? "bg-red-600 text-white" : "",
+                    today ? "bg-14848F text-white" : "",
                     selectDate.toDate().toDateString() ===
                       date.toDate().toDateString()
                       ? "bg-blue-900 text-white"
@@ -338,6 +340,7 @@ export const CalendarColumn1 = ({
                                     src={BankHoliLogo}
                                     alt="Bank Holiday Logo"
                                     style={{
+                                      marginTop:"24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,
@@ -357,6 +360,7 @@ export const CalendarColumn1 = ({
                                     src={MercHoliLogo}
                                     alt="Mercantile Holiday Logo"
                                     style={{
+                                      marginTop:"24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,
@@ -374,6 +378,7 @@ export const CalendarColumn1 = ({
                                     src={PoyaHoliLogo}
                                     alt="Poya Holiday Logo"
                                     style={{
+                                      marginTop:"24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,
@@ -391,6 +396,7 @@ export const CalendarColumn1 = ({
                                     src={PublicHoliLogo}
                                     alt="Public Holiday Logo"
                                     style={{
+                                      marginTop:"24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,

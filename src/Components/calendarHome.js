@@ -17,6 +17,7 @@ import axios from "axios";
 import { CalendarColumn3 } from "./CalendarColumn3";
 import { CalendarColumn2 } from "./CalendarColumn2";
 import { CalendarColumn1 } from "./CalendarColumn1";
+import Header from "./CalendarHeader";
 
 export default function Calendar() {
   const preference = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -45,7 +46,7 @@ export default function Calendar() {
     backgroundColor: "white",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    backgroundColor: "rgba(255, 255, 255, 0.14)",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
     borderRadius: "0 10px 10px 0",
     overflow: "hidden",
   };
@@ -99,6 +100,7 @@ export default function Calendar() {
     // Set background image based on the current month
     setBackgroundImage(monthImages[month]);
   }, []);
+  
 
   // Filter events for the specific month (example: current month)
   const eventsForCurrentMonth = meetings.filter((meeting) => {
@@ -149,14 +151,14 @@ export default function Calendar() {
   // };
   return (
     <div
-      className="App justify-end bg-cover bg-center pt-20 md:bg-repeat"
+      className="App justify-end bg-cover bg-center md:bg-repeat"
       data-theme={isDark ? "dark" : "light"}
       style={{
         backgroundImage: isDark ? "" : `url(${vector})`,
         backgroundPosition: "center",
-        paddingTop: 20,
       }}
     >
+      <Header  today={today}  months={months}/>
       <div className="flex justify-between">
       {/* <form onSubmit={handleFormSubmit} style={{flex:'1', flexDirection:'column'}}>
         <label style={{color:'white'}}>
