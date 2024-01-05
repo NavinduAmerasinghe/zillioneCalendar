@@ -185,6 +185,7 @@ export const CalendarColumn1 = ({
   parseISO,
   selectDate,
   setSelectDate,
+  setIsMeetingEnlarged,
   //month,
 }) => {
   //const [customMonth, setCustomMonth] = useState(dayjs().month() + 1);
@@ -245,23 +246,25 @@ export const CalendarColumn1 = ({
       }}
     >
       <div className="flex flex-col items-center">
-      <div className="flex gap-60 items-center">
+      <div className="flex gap-80 items-center">
         <div className="flex items-center gap-3 mt-2">
           <h1 className="text-2xl text-white">{months[today.month()]}</h1>
-          <h1 className="text-2xl text-white">{today.year()}</h1>
+          <h1 className="text-1xl mt-2 text-white">{today.year()}</h1>
         </div>
        
         <div className="flex gap-2 items-center">
           <IoIosArrowUp
-            className="w-5 h-5 cursor-pointer hover:scale-105 transition-all text-white"
+            className="w-5 mt-4 h-5 cursor-pointer hover:scale-105 transition-all text-white"
             onClick={() => {
               setToday(today.month(today.month() - 1));
+              setIsMeetingEnlarged(false);
             }}
           />
           <IoIosArrowDown
-            className="w-5 h-5 cursor-pointer hover:scale-105 transition-all text-white"
+            className="w-5 h-5 mt-4 cursor-pointer hover:scale-105 transition-all text-white"
             onClick={() => {
               setToday(today.month(today.month() + 1));
+              setIsMeetingEnlarged(false);
             }}
           />
         </div>
@@ -295,13 +298,14 @@ export const CalendarColumn1 = ({
                 <h1
                   className={cn(
                     currentMonth ? "text-white" : "text-gray-500",
-                    today ? "bg-14848F text-white" : "",
+                    today ? "bg-14848F text-white bg-opacity-75" : "",
                     selectDate.toDate().toDateString() ===
                       date.toDate().toDateString()
-                      ? "bg-blue-900 text-white"
+                      ? "bg-blue-900 text-white bg-opacity-75"
                       : "",
-                    "h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none relative"
+                    "h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:bg-opacity-50 hover:text-white transition-all cursor-pointer select-none relative"
                   )}
+                  
                   onClick={() => {
                     setSelectDate(date);
                   }}

@@ -109,10 +109,10 @@ const meetings = [
         id: 13,
         name: 'International Womens Day',
         imageUrl:
-          '',
+          'https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F3.March%2FWomens%20Day.jpg?alt=media&token=9f6bc5e0-e588-41c0-aa1c-ca290b931131',
         startDatetime: '2024-03-08T14:00',
         endDatetime: '2024-03-08T14:30',
-        //holidayType:['PublicHoliday','BankHoliday']
+        holidayType:[]
       },
       {
         id:14 ,

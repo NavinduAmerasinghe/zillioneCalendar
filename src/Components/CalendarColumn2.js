@@ -16,8 +16,6 @@ export const CalendarColumn2 = ({
   showChatbot,
   newChangedMonth,
 }) => {
-
-  
   console.log(newChangedMonth);
   return (
     <div
@@ -35,7 +33,7 @@ export const CalendarColumn2 = ({
           <h1 className="font-semibold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mr-2 mb-2">
             {selectDate.format("DD")}
           </h1>
-          <h1 className="font-semibold text-2xl text-white gap-6 mt-3">
+          <h1 className="font-semibold text-2xl text-white gap-4 mt-7">
             {selectDate.format("dddd")}
           </h1>
         </div>
@@ -47,10 +45,10 @@ export const CalendarColumn2 = ({
                 src={selectedImage}
                 alt=""
                 className="max-w-full h-auto mx-auto cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-                style={{ width: "250px", height: "200px"}}
+                style={{ width: "250px", height: "200px" }}
               />
               <button
-                onClick={handleClose} 
+                onClick={handleClose}
                 className="absolute top-0 right-0 bg-white text-black px-0.5 py-0.5 rounded-full hover:bg-gray-200 focus:outline-none"
               >
                 <AiFillCloseCircle />
@@ -62,16 +60,16 @@ export const CalendarColumn2 = ({
             </div>
           </div>
         )}
-        <div
-                >
+        <div>
           <h2 className="text-white text-xs font-semibold mb-1">
             All Events for {months[today.month()]}
           </h2>
           <div
-            style={{
-              maxHeight: isMeetingEnlarged ? "180px" : "",
-              overflowY: isMeetingEnlarged ? "auto" : "hidden",
+                    style={{
+              maxHeight: isMeetingEnlarged ? "140px" : (sortedEventsForCurrentMonth.length > 6 ? "383px" : "hidden"),
+              overflowY: isMeetingEnlarged ? "auto" : (sortedEventsForCurrentMonth.length > 4 ? "auto" : "hidden"),
             }}
+            
           >
             <ol className="mt-1 space-y-1 text-xxs text-gray-500 ml-4">
               {sortedEventsForCurrentMonth.length !== 0 ? (
@@ -98,18 +96,22 @@ export const CalendarColumn2 = ({
                         marginBottom: 3,
                       }}
                     >
-                      <div className="flex items-start space-x-1 group rounded-xl focus-within:bg-gray-100">
+                      <div
+                        className="flex items-start space-x-1 group rounded-xl focus-within:bg-gray-100"
+                        onClick={() => {
+                          toggleSelectedMeeting(event.imageUrl, event.name);
+                        }}
+                      >
                         <img
                           src={event.imageUrl}
                           alt=""
                           className="flex-none w-16 h-16 rounded-sm mr-1 hover:bg-gray-100 cursor-pointer"
-                          onClick={() => {
-                            toggleSelectedMeeting(event.imageUrl, event.name);
-                          }}
                         />
                         <div className="flex flex-col justify-start">
                           <p
-                            className={"text-xs text-white mt-1 mb-1 font-serif"}
+                            className={
+                              "text-xs text-white mt-1 mb-1 font-serif"
+                            }
                           >
                             {event.name}
                           </p>

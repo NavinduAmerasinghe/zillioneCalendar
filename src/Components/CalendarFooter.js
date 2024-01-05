@@ -6,11 +6,8 @@ import PublicHoliLogo from "./img/Publicholidaylogo.png";
 
 const CalendarFooter = () => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4 ml-12 mb-2">
+    <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4 ml-12">
       <div className="flex items-center">
-        {/* <span className="text-yellow-400" title="Poya Holiday">
-          &#9679;
-        </span> */}
           <span className="text-green-600" title="Poya Holiday">
           <img
             src={PoyaHoliLogo}
@@ -21,9 +18,6 @@ const CalendarFooter = () => {
         <h1 className="sm-1 text-white text-xs">Poya Holiday</h1>
       </div>
       <div className="flex items-center">
-        {/* <span className="text-red-600" title="Bank Holiday">
-          &#10060;
-        </span> */}
           <span className="text-green-600" title="Bank Holiday">
           <img
             src={BankHoliLogo}
@@ -34,9 +28,6 @@ const CalendarFooter = () => {
         <h1 className="sm-1 text-white text-xs">Bank Holiday</h1>
       </div>
       <div className="flex items-center">
-        {/* <span className="text-blue-500" title="Public Holiday">
-          &#9733;
-        </span> */}
         <span className="text-green-600" title="Public Holiday">
           <img
             src={PublicHoliLogo}
@@ -47,9 +38,6 @@ const CalendarFooter = () => {
         <h1 className="sm-1 text-white text-xs">Public Holiday</h1>
       </div>
       <div className="flex items-center">
-        {/* <span className="text-blue-500" title="Public Holiday">
-          &#9733;
-        </span> */}
         <span className="text-green-600" title="Mercantile Holiday">
           <img
             src={MercHoliLogo}

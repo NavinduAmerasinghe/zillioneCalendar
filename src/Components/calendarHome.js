@@ -96,13 +96,9 @@ export default function Calendar() {
       "url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)",
       "url(https://firebasestorage.googleapis.com/v0/b/portfolioimages-4a133.appspot.com/o/calendar%2FAI%20Calendar%20Images%2F1.January%2FPoya%20Day%20-%2025%20-%20p2.jpg?alt=media&token=21ab7465-079c-4d7c-998b-9673e6ecb227)",
     ];
-
-    // Set background image based on the current month
     setBackgroundImage(monthImages[month]);
   }, []);
   
-
-  // Filter events for the specific month (example: current month)
   const eventsForCurrentMonth = meetings.filter((meeting) => {
     const meetingDate = parseISO(meeting.startDatetime);
     return (
@@ -191,8 +187,9 @@ export default function Calendar() {
           parseISO={parseISO}
           selectDate={selectDate}
           setSelectDate={setSelectDate}
-
+          setIsMeetingEnlarged={setIsMeetingEnlarged}
         />
+        
         <CalendarColumn2
           selectDate={selectDate}
           isMeetingEnlarged={isMeetingEnlarged}
