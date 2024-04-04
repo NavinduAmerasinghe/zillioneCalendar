@@ -16,11 +16,15 @@ export const CalendarColumn2 = ({
   showChatbot,
   newChangedMonth,
 }) => {
-  console.log(newChangedMonth);
+  console.log(
+    "sortedEventsForCurrentMonth",
+    sortedEventsForCurrentMonth[0].imageUrl
+  );
   return (
     <div
       className="w-2/7 p-4"
       style={{
+        width: "400px",
         backgroundColor: "white",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -38,38 +42,51 @@ export const CalendarColumn2 = ({
           </h1>
         </div>
 
-        {isMeetingEnlarged && (
-          <div>
-            <div className="relative inline-block">
-              <img
-                src={selectedImage}
-                alt=""
-                className="max-w-full h-auto mx-auto cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-                style={{ width: "250px", height: "200px" }}
-              />
-              <button
+        {/* {isMeetingEnlarged && ( */}
+        <div>
+          <div className="relative inline-block">
+            <img
+              src={selectedImage || sortedEventsForCurrentMonth[0].imageUrl}
+              alt=""
+              className="max-w-full h-auto mx-auto cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+              style={{ width: "250px", height: "200px" }}
+            />
+            <div className="flex flex-col justify-start">
+              <p className={"text-xs text-white mt-1 mb-1 font-serif"}>
+                {selectedImage === null && sortedEventsForCurrentMonth[0].name}
+              </p>
+            </div>
+
+            {/* <button
                 onClick={handleClose}
                 className="absolute top-0 right-0 bg-white text-black px-0.5 py-0.5 rounded-full hover:bg-gray-200 focus:outline-none"
               >
                 <AiFillCloseCircle />
-              </button>
-            </div>
-
-            <div className="text-white text-center mt-2 text-lg font-semibold">
-              {selectedName}
-            </div>
+              </button> */}
           </div>
-        )}
+
+          <div className="text-white text-center mt-2 text-lg font-semibold">
+            {selectedName}
+          </div>
+        </div>
+        {/* )} */}
         <div>
           <h2 className="text-white text-xs font-semibold mb-1">
             All Events for {months[today.month()]}
           </h2>
           <div
-                    style={{
-              maxHeight: isMeetingEnlarged ? "140px" : (sortedEventsForCurrentMonth.length > 6 ? "383px" : "hidden"),
-              overflowY: isMeetingEnlarged ? "auto" : (sortedEventsForCurrentMonth.length > 4 ? "auto" : "hidden"),
+            style={{
+              maxHeight: isMeetingEnlarged
+                ? "140px"
+                : sortedEventsForCurrentMonth.length > 6
+                ? "383px"
+                : "hidden",
+              overflowY: isMeetingEnlarged
+                ? "auto"
+                : sortedEventsForCurrentMonth.length > 4
+                ? "auto"
+                : "hidden",
             }}
-            
           >
             <ol className="mt-1 space-y-1 text-xxs text-gray-500 ml-4">
               {sortedEventsForCurrentMonth.length !== 0 ? (

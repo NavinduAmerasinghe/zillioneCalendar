@@ -186,6 +186,7 @@ export const CalendarColumn1 = ({
   selectDate,
   setSelectDate,
   setIsMeetingEnlarged,
+  setSelectedImage,
   //month,
 }) => {
   //const [customMonth, setCustomMonth] = useState(dayjs().month() + 1);
@@ -249,20 +250,22 @@ export const CalendarColumn1 = ({
       <div className="flex gap-80 items-center">
         <div className="flex items-center gap-3 mt-2">
           <h1 className="text-2xl text-white">{months[today.month()]}</h1>
-          <h1 className="text-1xl mt-2 text-white">{today.year()}</h1>
+          <h1 className="text-1xl mr-5 text-white">{today.year()}</h1>
         </div>
        
         <div className="flex gap-2 items-center">
           <IoIosArrowUp
-            className="w-5 mt-4 h-5 cursor-pointer hover:scale-105 transition-all text-white"
+            className="w-8 mt-4 h-8 cursor-pointer hover:scale-105 transition-all text-white"
             onClick={() => {
+              setSelectedImage(null);
               setToday(today.month(today.month() - 1));
               setIsMeetingEnlarged(false);
             }}
           />
           <IoIosArrowDown
-            className="w-5 h-5 mt-4 cursor-pointer hover:scale-105 transition-all text-white"
+            className="w-8 h-8 mt-4 cursor-pointer hover:scale-105 transition-all text-white"
             onClick={() => {
+              setSelectedImage(null);
               setToday(today.month(today.month() + 1));
               setIsMeetingEnlarged(false);
             }}

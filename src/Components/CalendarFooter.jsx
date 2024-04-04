@@ -6,7 +6,7 @@ import PublicHoliLogo from "./img/Publicholidaylogo.png";
 
 const CalendarFooter = () => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4 ml-12">
+    <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start space-y-4 sm:space-y-0 sm:space-x-4 ml-12 mt-5">
       <div className="flex items-center">
           <span className="text-green-600" title="Poya Holiday">
           <img

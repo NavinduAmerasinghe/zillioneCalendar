@@ -16,7 +16,7 @@ export const CalendarColumn3 = ({toggleChatbot, showChatbot , chatBotStyles}) =>
 
     {showChatbot && (
       // <div ref={chatbotRef} style={{ height: 500, overflow: "auto" }}>
-      <div style={{ height: 500, overflow: "auto" }}>
+      <div style={{ height: 500, overflow: "auto",marginTop:"20px",marginBottom:"20px",marginRight:"20px" }}>
         <ChatbotComponent />
       </div>
     )}
