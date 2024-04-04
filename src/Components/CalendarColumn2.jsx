@@ -18,8 +18,8 @@ export const CalendarColumn2 = ({
   onClickSelectedDay,
 }) => {
   console.log(
-    "sortedEventsForCurrentMonth",
-    sortedEventsForCurrentMonth[0].startDatetime
+    "column2 selectedName",
+    selectedName
   );
 
   
@@ -56,11 +56,11 @@ export const CalendarColumn2 = ({
               className="max-w-full h-auto mx-auto cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition duration-300"
               style={{ width: "250px", height: "200px" }}
             />
-            {/* <div className="flex flex-col justify-start">
+            <div className="flex flex-col justify-start">
             <div className="text-white text-center mt-2 text-lg font-semibold">
-                {selectedImage === null && sortedEventsForCurrentMonth[0].name}
+                { selectedName === null && sortedEventsForCurrentMonth[0].name}
               </div>
-            </div> */}
+            </div>
 
             {/* <button
                 onClick={handleClose}
