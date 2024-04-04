@@ -24,6 +24,7 @@ export const CalendarColumn1 = ({
   setIsMeetingEnlarged,
   setSelectedImage,
   setOnClickSelectedDay,
+  setSelectedName,
   //month,
 }) => {
   //const [customMonth, setCustomMonth] = useState(dayjs().month() + 1);
@@ -67,7 +68,6 @@ export const CalendarColumn1 = ({
   // };
 
   const updatedDates = generateDate(selectDate.month(), selectDate.year());
-  console.log("updated dates", updatedDates);
 
   return (
     <div
@@ -81,7 +81,6 @@ export const CalendarColumn1 = ({
         overflow: "hidden",
       }}
     >
-      
       {/* <div className="flex flex-col items-center">
         <div className="flex gap-80 items-center">
           <div className="flex items-center gap-3 justify-start mt-2">
@@ -123,16 +122,19 @@ export const CalendarColumn1 = ({
               class="w-8 h-8 cursor-pointer hover:scale-105 transition-all text-white"
               onClick={() => {
                 setSelectedImage(null);
+                setSelectedName(null);
                 setToday(today.month(today.month() - 1));
                 setIsMeetingEnlarged(false);
-               setOnClickSelectedDay(null)
+                setOnClickSelectedDay(null);
                 // setSelectDate();
               }}
             />
+         
             <IoIosArrowDown
               class="w-8 h-8 cursor-pointer hover:scale-105 transition-all text-white"
               onClick={() => {
                 setSelectedImage(null);
+                setSelectedName(null);
                 setToday(today.month(today.month() + 1));
                 setIsMeetingEnlarged(false);
                 setOnClickSelectedDay(null);
@@ -187,8 +189,8 @@ export const CalendarColumn1 = ({
                     <div className="flex space-x-1 mt-2">
                       {currentMonth &&
                         meetingsOnDate.map((meeting, i) => {
-                          console.log("Meetinggggggg:", meeting); 
-                          return(
+                          // console.log("Meetinggggggg:", meeting);
+                          return (
                             <span
                               key={i}
                               title={meeting.name}
@@ -265,7 +267,9 @@ export const CalendarColumn1 = ({
                                   </span>
                                 )}
                               {meeting.holidayType &&
-                                meeting.holidayType.includes("PublicHoliday") && (
+                                meeting.holidayType.includes(
+                                  "PublicHoliday"
+                                ) && (
                                   <span
                                     className="text-green-600"
                                     title="Public Holiday"
@@ -283,9 +287,8 @@ export const CalendarColumn1 = ({
                                   </span>
                                 )}
                             </span>
-                          )
-                        }
-                        )}
+                          );
+                        })}
                     </div>
                   )}
                 </h1>

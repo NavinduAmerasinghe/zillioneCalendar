@@ -54,6 +54,8 @@ export default function Calendar() {
     overflow: "hidden",
   };
 
+  console.log("selectedName",selectedName)
+
   const handleClickOutside = (event) => {
     if (chatbotRef.current && !chatbotRef.current.contains(event.target)) {
       setShowChatbot(false);
@@ -82,7 +84,6 @@ export default function Calendar() {
 
  
 
-  console.log(currentMonth);
 
   const eventsForCurrentMonth = meetings.filter((meeting) => {
     const meetingDate = parseISO(meeting.startDatetime);
@@ -91,7 +92,7 @@ export default function Calendar() {
       meetingDate.getFullYear() === today.year()
     );
   });
-  console.log(backgroundImage);
+
   
   const sortedEventsForCurrentMonth = eventsForCurrentMonth.sort((a, b) => {
     const dateA = new Date(a.startDatetime).getDate();
@@ -134,6 +135,7 @@ export default function Calendar() {
           setSelectDate={setSelectDate}
           setIsMeetingEnlarged={setIsMeetingEnlarged}
           setSelectedImage={setSelectedImage}
+          setSelectedName={setSelectedName}
           setOnClickSelectedDay={setOnClickSelectedDay}
         />
 
