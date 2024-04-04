@@ -18,8 +18,9 @@ export const CalendarColumn2 = ({
 }) => {
   console.log(
     "sortedEventsForCurrentMonth",
-    sortedEventsForCurrentMonth[0].imageUrl
+    sortedEventsForCurrentMonth[0].startDatetime
   );
+  
   return (
     <div
       className="w-2/7 p-4"
@@ -35,10 +36,12 @@ export const CalendarColumn2 = ({
       <div className="h-72 sm:h-96 w-full sm:px-5">
         <div className="flex items-center">
           <h1 className="font-semibold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mr-2 mb-2">
-            {selectDate.format("DD")}
+            {/* {selectDate.format("DD")} */}
+            {dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("DD")}
           </h1>
           <h1 className="font-semibold text-2xl text-white gap-4 mt-7">
-            {selectDate.format("dddd")}
+            {/* {selectDate.format("dddd")} */}
+            {dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("dddd")}
           </h1>
         </div>
 

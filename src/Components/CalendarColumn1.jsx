@@ -288,6 +288,7 @@ export const CalendarColumn1 = ({
                 setSelectedImage(null);
                 setToday(today.month(today.month() - 1));
                 setIsMeetingEnlarged(false);
+                // setSelectDate();
               }}
             />
             <IoIosArrowDown
@@ -296,6 +297,7 @@ export const CalendarColumn1 = ({
                 setSelectedImage(null);
                 setToday(today.month(today.month() + 1));
                 setIsMeetingEnlarged(false);
+                // setSelectDate();
               }}
             />
           </div>

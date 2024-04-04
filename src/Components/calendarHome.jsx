@@ -146,6 +146,7 @@ export default function Calendar() {
           currentDate={currentDate}
           toggleSelectedMeeting={toggleSelectedMeeting}
           showChatbot={showChatbot}
+          setSelectDate={setSelectDate}
         />
         <CalendarColumn3
           toggleChatbot={toggleChatbot}
