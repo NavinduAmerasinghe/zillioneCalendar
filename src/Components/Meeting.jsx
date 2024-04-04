@@ -28,12 +28,12 @@ function Meeting({ meeting,onMeetingClick }) {
         }}
       >
         <li className="flex items-start space-x-4 group rounded-xl focus-within:bg-gray-100 ">
-          <img
+          {/* <img
             src={meeting.imageUrl}
             alt=""
             className="flex-none w-20 h-20 rounded-sm mr-2 hover:bg-gray-100 cursor-pointer"
             onClick={()=>onMeetingClick(meeting.imageUrl,meeting.name)}
-          />
+          /> */}
           <div className="flex flex-col justify-start">
             <p className="vtext-gray-900 text-white mt-4">{meeting.name}</p>
             <div className="flex items-center">

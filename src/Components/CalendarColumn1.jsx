@@ -229,8 +229,6 @@ export const CalendarColumn1 = ({
   //   }
   // };
 
-
-
   const updatedDates = generateDate(selectDate.month(), selectDate.year());
   console.log("updated dates", updatedDates);
 
@@ -246,33 +244,64 @@ export const CalendarColumn1 = ({
         overflow: "hidden",
       }}
     >
-      <div className="flex flex-col items-center">
-      <div className="flex gap-80 items-center">
-        <div className="flex items-center gap-3 mt-2">
-          <h1 className="text-2xl text-white">{months[today.month()]}</h1>
-          <h1 className="text-1xl mr-5 text-white">{today.year()}</h1>
+      
+      {/* <div className="flex flex-col items-center">
+        <div className="flex gap-80 items-center">
+          <div className="flex items-center gap-3 justify-start mt-2">
+            <h1 className="text-2xl text-white">{months[today.month()]}</h1>
+            <h1 className="text-1xl text-white">{today.year()}</h1>
+          </div>
+
+          <div className="flex gap-2 items-center">
+            <IoIosArrowUp
+              className="w-8 mt-4 h-8 cursor-pointer hover:scale-105 transition-all text-white"
+              onClick={() => {
+                setSelectedImage(null);
+                setToday(today.month(today.month() - 1));
+                setIsMeetingEnlarged(false);
+              }}
+            />
+            <IoIosArrowDown
+              className="w-8 h-8 mt-4 cursor-pointer hover:scale-105 transition-all text-white"
+              onClick={() => {
+                setSelectedImage(null);
+                setToday(today.month(today.month() + 1));
+                setIsMeetingEnlarged(false);
+              }}
+            />
+          </div>
         </div>
-       
-        <div className="flex gap-2 items-center">
-          <IoIosArrowUp
-            className="w-8 mt-4 h-8 cursor-pointer hover:scale-105 transition-all text-white"
-            onClick={() => {
-              setSelectedImage(null);
-              setToday(today.month(today.month() - 1));
-              setIsMeetingEnlarged(false);
-            }}
-          />
-          <IoIosArrowDown
-            className="w-8 h-8 mt-4 cursor-pointer hover:scale-105 transition-all text-white"
-            onClick={() => {
-              setSelectedImage(null);
-              setToday(today.month(today.month() + 1));
-              setIsMeetingEnlarged(false);
-            }}
-          />
+      </div> */}
+      <div class="grid grid-cols-2 gap-8">
+        <div class="flex flex-col items-start">
+          <div class="flex items-center gap-3 mt-2 ml-6">
+            <h1 class="text-2xl text-white">{months[today.month()]}</h1>
+            <h1 class="text-1xl text-white">{today.year()}</h1>
+          </div>
         </div>
+
+        <div class="flex flex-col items-end">
+          <div class="flex gap-3 mr-6">
+            <IoIosArrowUp
+              class="w-8 h-8 cursor-pointer hover:scale-105 transition-all text-white"
+              onClick={() => {
+                setSelectedImage(null);
+                setToday(today.month(today.month() - 1));
+                setIsMeetingEnlarged(false);
+              }}
+            />
+            <IoIosArrowDown
+              class="w-8 h-8 cursor-pointer hover:scale-105 transition-all text-white"
+              onClick={() => {
+                setSelectedImage(null);
+                setToday(today.month(today.month() + 1));
+                setIsMeetingEnlarged(false);
+              }}
+            />
+          </div>
         </div>
       </div>
+
       <div className="grid grid-cols-7">
         {days.map((day, index) => {
           return (
@@ -308,7 +337,6 @@ export const CalendarColumn1 = ({
                       : "",
                     "h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:bg-opacity-50 hover:text-white transition-all cursor-pointer select-none relative"
                   )}
-                  
                   onClick={() => {
                     setSelectDate(date);
                   }}
@@ -347,7 +375,7 @@ export const CalendarColumn1 = ({
                                     src={BankHoliLogo}
                                     alt="Bank Holiday Logo"
                                     style={{
-                                      marginTop:"24px",
+                                      marginTop: "24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,
@@ -367,7 +395,7 @@ export const CalendarColumn1 = ({
                                     src={MercHoliLogo}
                                     alt="Mercantile Holiday Logo"
                                     style={{
-                                      marginTop:"24px",
+                                      marginTop: "24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,
@@ -385,7 +413,7 @@ export const CalendarColumn1 = ({
                                     src={PoyaHoliLogo}
                                     alt="Poya Holiday Logo"
                                     style={{
-                                      marginTop:"24px",
+                                      marginTop: "24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,
@@ -403,7 +431,7 @@ export const CalendarColumn1 = ({
                                     src={PublicHoliLogo}
                                     alt="Public Holiday Logo"
                                     style={{
-                                      marginTop:"24px",
+                                      marginTop: "24px",
                                       height: "8px",
                                       width: "8px",
                                       marginLeft: 4,

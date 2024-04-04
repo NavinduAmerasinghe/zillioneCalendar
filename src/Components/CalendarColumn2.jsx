@@ -44,7 +44,7 @@ export const CalendarColumn2 = ({
 
         {/* {isMeetingEnlarged && ( */}
         <div>
-          <div className="relative inline-block">
+          <div className="relative inline-block" style={{marginTop:"5px"}}>
             <img
               src={selectedImage || sortedEventsForCurrentMonth[0].imageUrl}
               alt=""
@@ -52,9 +52,9 @@ export const CalendarColumn2 = ({
               style={{ width: "250px", height: "200px" }}
             />
             <div className="flex flex-col justify-start">
-              <p className={"text-xs text-white mt-1 mb-1 font-serif"}>
+            <div className="text-white text-center mt-2 text-lg font-semibold">
                 {selectedImage === null && sortedEventsForCurrentMonth[0].name}
-              </p>
+              </div>
             </div>
 
             {/* <button
@@ -65,13 +65,13 @@ export const CalendarColumn2 = ({
               </button> */}
           </div>
 
-          <div className="text-white text-center mt-2 text-lg font-semibold">
+          <div className="text-white text-center text-lg font-semibold">
             {selectedName}
           </div>
         </div>
         {/* )} */}
         <div>
-          <h2 className="text-white text-xs font-semibold mb-1">
+          <h2 className="text-white text-xs font-semibold mb-1 mt-4">
             All Events for {months[today.month()]}
           </h2>
           <div
