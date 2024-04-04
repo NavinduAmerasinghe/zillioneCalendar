@@ -10,14 +10,14 @@ const Header = ({months ,today }) => {
       );
 
   return (
-    <header className=" text-center">
+    <header className=" text-center mb-4">
       <div className="flex flex-col items-center justify-center">
         {matchingQuotes.map((quote,index) => (
           <div key={index} id="month">
-            <h1 className="text-1xl font-bold text-white mt-4" style={{ fontFamily: "'Inria Sans', sans-serif" }}>
+            <h1 className="text-1xl font-bold text-white mt-4" style={{ fontFamily: "'Inria Sans', sans-serif",letterSpacing: '1px' }}>
               {quote.title}
             </h1>
-            <h2 className="text-sm text-white mb-2">
+            <h2 className="text-sm font-semibold text-white mb-2">
             {quote.subtitle}
             </h2>
           </div>
