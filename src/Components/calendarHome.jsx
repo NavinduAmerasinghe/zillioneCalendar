@@ -33,6 +33,7 @@ export default function Calendar() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedName, setSelectedName] = useState(null);
   const [isMeetingEnlarged, setIsMeetingEnlarged] = useState(true);
+  const [onClickSelectedDay,setOnClickSelectedDay] = useState(null)
   const [showChatbot, setShowChatbot] = useState(true);
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const currentMonth = months[today.month()];
@@ -67,9 +68,10 @@ export default function Calendar() {
   }, []);
   //-------------------------------
 
-  const toggleSelectedMeeting = (imgUrl, name) => {
+  const toggleSelectedMeeting = (imgUrl, name,startDatetime) => {
     setSelectedName(name);
     setSelectedImage(imgUrl);
+    setOnClickSelectedDay(startDatetime);
     setIsMeetingEnlarged(true);
     // setIsMeetingEnlarged(!isMeetingEnlarged);
   };
@@ -132,6 +134,7 @@ export default function Calendar() {
           setSelectDate={setSelectDate}
           setIsMeetingEnlarged={setIsMeetingEnlarged}
           setSelectedImage={setSelectedImage}
+          setOnClickSelectedDay={setOnClickSelectedDay}
         />
 
         <CalendarColumn2
@@ -140,6 +143,7 @@ export default function Calendar() {
           handleClose={handleClose}
           selectedImage={selectedImage}
           selectedName={selectedName}
+          onClickSelectedDay={onClickSelectedDay}
           months={months}
           today={today}
           sortedEventsForCurrentMonth={sortedEventsForCurrentMonth}

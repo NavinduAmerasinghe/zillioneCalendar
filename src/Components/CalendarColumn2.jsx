@@ -15,11 +15,13 @@ export const CalendarColumn2 = ({
   toggleSelectedMeeting,
   showChatbot,
   newChangedMonth,
+  onClickSelectedDay,
 }) => {
   console.log(
     "sortedEventsForCurrentMonth",
     sortedEventsForCurrentMonth[0].startDatetime
   );
+
   
   return (
     <div
@@ -37,11 +39,11 @@ export const CalendarColumn2 = ({
         <div className="flex items-center">
           <h1 className="font-semibold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mr-2 mb-2">
             {/* {selectDate.format("DD")} */}
-            {dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("DD")}
+            {onClickSelectedDay === null ? dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("DD"):dayjs(onClickSelectedDay).format("DD")}
           </h1>
           <h1 className="font-semibold text-2xl text-white gap-4 mt-7">
             {/* {selectDate.format("dddd")} */}
-            {dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("dddd")}
+            {onClickSelectedDay === null ? dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("dddd"):dayjs(onClickSelectedDay).format("dddd")}
           </h1>
         </div>
 
@@ -70,6 +72,7 @@ export const CalendarColumn2 = ({
 
           <div className="text-white text-center text-lg font-semibold">
             {selectedName}
+            {onClickSelectedDay}
           </div>
         </div>
         {/* )} */}
@@ -119,7 +122,7 @@ export const CalendarColumn2 = ({
                       <div
                         className="flex items-start space-x-1 group rounded-xl focus-within:bg-gray-100"
                         onClick={() => {
-                          toggleSelectedMeeting(event.imageUrl, event.name);
+                          toggleSelectedMeeting(event.imageUrl, event.name,event.startDatetime);
                         }}
                       >
                         <img
