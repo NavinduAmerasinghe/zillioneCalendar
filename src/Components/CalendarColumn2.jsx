@@ -72,7 +72,6 @@ export const CalendarColumn2 = ({
 
           <div className="text-white text-center text-lg font-semibold">
             {selectedName}
-            {onClickSelectedDay}
           </div>
         </div>
         {/* )} */}
