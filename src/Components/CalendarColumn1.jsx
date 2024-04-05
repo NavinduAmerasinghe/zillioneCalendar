@@ -27,46 +27,6 @@ export const CalendarColumn1 = ({
   setSelectedName,
   //month,
 }) => {
-  //const [customMonth, setCustomMonth] = useState(dayjs().month() + 1);
-  //  const navigate = useNavigate();
-  // const { month } = useParams();
-  //const [selectDate, setSelectDate] = useState(dayjs());
-
-  // useEffect(() => {
-  //   const initialDate = selectDate.clone().month(parseInt(month) - 1); // Convert month to number
-  //   setSelectDate(initialDate);
-  // }, [month, setSelectDate, selectDate]);
-
-  // const handleCustomMonthChange = () => {
-  //   // Assuming you want to navigate based on month number
-  //   navigate(`/month=${customMonth}`);
-  // };
-
-  // const handleCustomMonthChange = () => {
-  //   if (customMonth >= 1 && customMonth <= 12) {
-  //     const newDate = selectDate.clone().month(customMonth - 1);
-  //     axios.post('http://localhost:5000/', { newDate })
-  //       .then(response => {
-  //         console.log('Date updated successfully:', response.data);
-  //         setSelectDate(newDate);
-  //       })
-  //       .catch(error => {
-  //         console.error('Error updating date:', error);
-  //       });
-  //   } else {
-  //     console.error('Please enter a valid month (1-12)');
-  //   }
-  // };
-
-  // const handleCustomMonthChange = () => {
-  //   if (customMonth >= 1 && customMonth <= 12) {
-  //     const newDate = selectDate.clone().month(customMonth - 1); // Month is zero-indexed
-  //     setSelectDate(newDate);
-  //   } else {
-  //     console.error('Please enter a valid month (1-12)');
-  //   }
-  // };
-
   const updatedDates = generateDate(selectDate.month(), selectDate.year());
 
   return (
@@ -81,43 +41,16 @@ export const CalendarColumn1 = ({
         overflow: "hidden",
       }}
     >
-      {/* <div className="flex flex-col items-center">
-        <div className="flex gap-80 items-center">
-          <div className="flex items-center gap-3 justify-start mt-2">
-            <h1 className="text-2xl text-white">{months[today.month()]}</h1>
-            <h1 className="text-1xl text-white">{today.year()}</h1>
-          </div>
-
-          <div className="flex gap-2 items-center">
-            <IoIosArrowUp
-              className="w-8 mt-4 h-8 cursor-pointer hover:scale-105 transition-all text-white"
-              onClick={() => {
-                setSelectedImage(null);
-                setToday(today.month(today.month() - 1));
-                setIsMeetingEnlarged(false);
-              }}
-            />
-            <IoIosArrowDown
-              className="w-8 h-8 mt-4 cursor-pointer hover:scale-105 transition-all text-white"
-              onClick={() => {
-                setSelectedImage(null);
-                setToday(today.month(today.month() + 1));
-                setIsMeetingEnlarged(false);
-              }}
-            />
-          </div>
-        </div>
-      </div> */}
       <div class="grid grid-cols-2 gap-8">
         <div class="flex flex-col items-start">
-          <div class="flex items-center gap-3 mt-2 ml-6">
+          <div class="flex flex-col items-start ml-6">
             <h1 class="text-2xl text-white">{months[today.month()]}</h1>
             <h1 class="text-1xl text-white">{today.year()}</h1>
           </div>
         </div>
 
         <div class="flex flex-col items-end">
-          <div class="flex gap-3 mr-6">
+          <div class="flex gap-3 mr-6 mt-2">
             <IoIosArrowUp
               class="w-8 h-8 cursor-pointer hover:scale-105 transition-all text-white"
               onClick={() => {
@@ -129,7 +62,7 @@ export const CalendarColumn1 = ({
                 // setSelectDate();
               }}
             />
-         
+
             <IoIosArrowDown
               class="w-8 h-8 cursor-pointer hover:scale-105 transition-all text-white"
               onClick={() => {
@@ -172,7 +105,7 @@ export const CalendarColumn1 = ({
               >
                 <h1
                   className={cn(
-                    currentMonth ? "text-white" : "text-gray-500",
+                    currentMonth ? "text-white" : "text-gray-400",
                     today ? "bg-14848F text-white bg-opacity-75" : "",
                     selectDate.toDate().toDateString() ===
                       date.toDate().toDateString()
@@ -291,6 +224,99 @@ export const CalendarColumn1 = ({
                         })}
                     </div>
                   )}
+                  {/* {meetingsOnDate.length > 0 && (
+                    <div className="flex space-x-1 mt-2">
+                      {currentMonth &&
+                        meetingsOnDate.map((meeting, i) => (
+                          <span
+                            key={i}
+                            title={meeting.name}
+                            className="flex items-center"
+                            style={{ marginRight: "4px", height: "0px" }}
+                          >
+                            {!meeting.holidayType && (
+                              <span className="text-white inline-block ml-2">
+                                •{" "}
+                              </span>
+                            )}
+                            {meeting.holidayType &&
+                              meeting.holidayType.includes("BankHoliday") && (
+                                <span
+                                  className="text-red-600"
+                                  title="Bank Holiday"
+                                >
+                                  <img
+                                    src={BankHoliLogo}
+                                    alt="Bank Holiday Logo"
+                                    style={{
+                                      marginTop: "24px",
+                                      height: "8px",
+                                      width: "8px",
+                                      marginLeft: 4,
+                                    }}
+                                  />
+                                </span>
+                              )}
+                            {meeting.holidayType &&
+                              meeting.holidayType.includes(
+                                "MercantileHoliday"
+                              ) && (
+                                <span
+                                  className="text-green-600"
+                                  title="Mercantile Holiday"
+                                >
+                                  <img
+                                    src={MercHoliLogo}
+                                    alt="Mercantile Holiday Logo"
+                                    style={{
+                                      marginTop: "24px",
+                                      height: "8px",
+                                      width: "8px",
+                                      marginLeft: 4,
+                                    }}
+                                  />
+                                </span>
+                              )}
+                            {meeting.holidayType &&
+                              meeting.holidayType.includes("PoyaHoliday") && (
+                                <span
+                                  className="text-green-600"
+                                  title="Poya Holiday"
+                                >
+                                  <img
+                                    src={PoyaHoliLogo}
+                                    alt="Poya Holiday Logo"
+                                    style={{
+                                      marginTop: "24px",
+                                      height: "8px",
+                                      width: "8px",
+                                      marginLeft: 4,
+                                    }}
+                                  />
+                                </span>
+                              )}
+                            {meeting.holidayType &&
+                              meeting.holidayType.includes("PublicHoliday") && (
+                                <span
+                                  className="text-green-600"
+                                  title="Public Holiday"
+                                >
+                                  <img
+                                    src={PublicHoliLogo}
+                                    alt="Public Holiday Logo"
+                                    style={{
+                                      marginTop: "24px",
+                                      height: "8px",
+                                      width: "8px",
+                                      marginLeft: 4,
+                                    }}
+                                  />
+                                </span>
+                              )}
+                          </span>
+                        ))}
+                    </div>
+                  )} */}
                 </h1>
               </div>
             );

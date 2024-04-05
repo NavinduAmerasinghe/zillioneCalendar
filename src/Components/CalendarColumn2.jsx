@@ -231,7 +231,7 @@ export const CalendarColumn2 = ({
 
       {/* Second Row */}
       <div style={{ flex: 1, overflow: "hidden" }}>
-        <h2 className="text-white text-xs font-semibold mb-1 mt-4">
+        <h2 className="text-white text-xs font-semibold mb-1 mt-6">
           All Events for {months[today.month()]}
         </h2>
         <div
