@@ -264,7 +264,7 @@ export const CalendarColumn2 = ({
                     }}
                   >
                     <div
-                      className="flex items-start space-x-1 group rounded-xl focus-within:bg-gray-100"
+                      className="flex items-start space-x-1 group rounded-xl focus-within:bg-gray-100 cursor-pointer"
                       onClick={() => {
                         toggleSelectedMeeting(event.imageUrl, event.name, event.startDatetime);
                       }}
