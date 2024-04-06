@@ -22,7 +22,6 @@
 //     selectedName
 //   );
 
-  
 //   return (
 //     <div
 //       className="w-2/7 p-4"
@@ -160,6 +159,7 @@
 import React from "react";
 import dayjs from "dayjs";
 import { AiFillCloseCircle } from "react-icons/ai";
+import Skeleton from '@mui/material/Skeleton';
 
 export const CalendarColumn2 = ({
   selectDate,
@@ -176,11 +176,6 @@ export const CalendarColumn2 = ({
   newChangedMonth,
   onClickSelectedDay,
 }) => {
-  console.log(
-    "column2 selectedName",
-    selectedName
-  );
-
   return (
     <div
       className="w-2/7 p-4"
@@ -199,26 +194,31 @@ export const CalendarColumn2 = ({
       <div style={{ flex: "none" }}>
         <div className="flex items-center">
           <h1 className="font-semibold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mr-2 mb-2">
-            {/* {selectDate.format("DD")} */}
-            {onClickSelectedDay === null ? dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("DD") : dayjs(onClickSelectedDay).format("DD")}
+            {sortedEventsForCurrentMonth.length > 0 && (onClickSelectedDay === null ? dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("DD") : dayjs(onClickSelectedDay).format("DD"))}
           </h1>
           <h1 className="font-semibold text-2xl text-white gap-4 mt-7">
-            {/* {selectDate.format("dddd")} */}
-            {onClickSelectedDay === null ? dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("dddd") : dayjs(onClickSelectedDay).format("dddd")}
+            {sortedEventsForCurrentMonth.length > 0 && (onClickSelectedDay === null ? dayjs(sortedEventsForCurrentMonth[0].startDatetime).format("dddd") : dayjs(onClickSelectedDay).format("dddd"))}
           </h1>
         </div>
 
         <div>
           <div className="relative inline-block" style={{ marginTop: "5px" }}>
-            <img
-              src={selectedImage || sortedEventsForCurrentMonth[0].imageUrl}
-              alt=""
-              className="max-w-full h-auto mx-auto cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-              style={{ width: "250px", height: "200px" }}
-            />
+            {sortedEventsForCurrentMonth.length > 0 ?
+                   <img
+                   src={ selectedImage || sortedEventsForCurrentMonth[0].imageUrl}
+                   alt=""
+                   className="max-w-full h-auto mx-auto cursor-pointer rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                   style={{ width: "250px", height: "200px" }}
+                 />:     <Skeleton variant="rectangular" width="100%">
+                 <div style={{ width: "250px", height: "200px" }} />
+               </Skeleton>
+            }
+       
             <div className="flex flex-col justify-start">
               <div className="text-white text-center mt-2 text-lg font-semibold">
-                {selectedName === null && sortedEventsForCurrentMonth[0].name}
+                {sortedEventsForCurrentMonth.length > 0 &&
+                  selectedName === null &&
+                  sortedEventsForCurrentMonth[0].name}
               </div>
             </div>
           </div>
@@ -236,8 +236,16 @@ export const CalendarColumn2 = ({
         </h2>
         <div
           style={{
-            maxHeight: isMeetingEnlarged ? "140px" : sortedEventsForCurrentMonth.length > 2 ? "hidden" : "hidden",
-            overflowY: isMeetingEnlarged ? "auto" : sortedEventsForCurrentMonth.length > 2 ? "auto" : "hidden",
+            maxHeight: isMeetingEnlarged
+              ? "140px"
+              : sortedEventsForCurrentMonth.length > 2
+              ? "hidden"
+              : "hidden",
+            overflowY: isMeetingEnlarged
+              ? "auto"
+              : sortedEventsForCurrentMonth.length > 2
+              ? "auto"
+              : "hidden",
           }}
         >
           <ol className="mt-1 space-y-1 text-xxs text-gray-500 ml-4">
@@ -256,7 +264,9 @@ export const CalendarColumn2 = ({
                     key={event.id}
                     className="rounded-lg bg-transparent max-w-xs"
                     style={{
-                      backgroundColor: isCurrentDate ? "#1E3A8A" : "rgba(255, 255, 255, 0.1)",
+                      backgroundColor: isCurrentDate
+                        ? "#1E3A8A"
+                        : "rgba(255, 255, 255, 0.1)",
                       borderRadius: 3,
                       overflow: "hidden",
                       padding: 3,
@@ -266,7 +276,11 @@ export const CalendarColumn2 = ({
                     <div
                       className="flex items-start space-x-1 group rounded-xl focus-within:bg-gray-100 cursor-pointer"
                       onClick={() => {
-                        toggleSelectedMeeting(event.imageUrl, event.name, event.startDatetime);
+                        toggleSelectedMeeting(
+                          event.imageUrl,
+                          event.name,
+                          event.startDatetime
+                        );
                       }}
                     >
                       <img
@@ -275,7 +289,9 @@ export const CalendarColumn2 = ({
                         className="flex-none w-16 h-16 rounded-sm mr-1 hover:bg-gray-100 cursor-pointer"
                       />
                       <div className="flex flex-col justify-start">
-                        <p className={"text-xs text-white mt-1 mb-1 font-serif"}>
+                        <p
+                          className={"text-xs text-white mt-1 mb-1 font-serif"}
+                        >
                           {event.name}
                         </p>
                         <div className="text-xs text-gray-300 text-left">

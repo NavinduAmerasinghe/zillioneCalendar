@@ -105,7 +105,7 @@ export const CalendarColumn1 = ({
               >
                 <h1
                   className={cn(
-                    currentMonth ? "text-white" : "text-gray-400",
+                    currentMonth ? "text-gray-100" : "text-gray-300",
                     today ? "bg-14848F text-white bg-opacity-75" : "",
                     selectDate.toDate().toDateString() ===
                       date.toDate().toDateString()
